@@ -17,11 +17,11 @@ button:disabled{cursor:not-allowed;opacity:0.6;box-shadow:none}
 button:focus-visible{background:#065d54}
 button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #d99300;outline-offset:3px}
 pre{white-space:pre-wrap;overflow-wrap:anywhere;font:15px/1.6 monospace}
-.official-link{display:inline-block;background:#08766b;color:white;text-decoration:none;padding:10px;border-radius:6px;text-align:center}.public-note{font-size:0.95em}.official-link:hover{background:#065d54}#ocr-progress{font-size:.9em}
+#ocr-progress{font-size:.9em}
 @media(max-width:600px){body{padding:16px 10px}main{padding:20px 16px;border-radius:12px}label{grid-template-columns:minmax(0,1fr);gap:6px}.actions{flex-direction:column}.actions button{width:100%;min-height:48px}}
 </style>
 <main><h1 style="text-align:center">মাধ্যমিক ও উচ্চ মাধ্যমিক পরীক্ষার ফলাফল</h1>
-<p class="public-note">মোবাইলে official সাইটে ফল দেখুন। PC-তে extension দিয়ে সংযোগ করা যায়। কার্ডের ছবি/PDF এই browser-এই পড়া হবে।</p><div class="actions"><a class="official-link" href="https://www.educationboardresults.gov.bd/" target="_blank" rel="noopener">Official সাইটে ফল দেখুন</a><button id="copy-data" type="button">তথ্য কপি করুন</button></div><p id="public-status" role="status" aria-live="polite"></p><section id="entry-step">
+<section id="entry-step">
 <div class="actions"><button id="connect-site" type="button">Connect to Site</button></div><p id="connection-status" role="status" aria-live="polite"></p>
 <form><label>Examination <select name="exam" required disabled><option value="">Connect to Site</option></select></label>
 <label>Year <select name="year" required disabled><option value="">Connect to Site</option></select></label>

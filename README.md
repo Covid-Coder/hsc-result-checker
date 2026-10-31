@@ -4,7 +4,7 @@ Public static site: browser-only image/PDF OCR with an optional desktop official
 
 ## ব্যবহার
 
-- Mobile: কার্ডের JPG/PNG/BMP বা scanned PDF বাছুন। Examination, Year, Board, roll ও registration পড়ার চেষ্টা করবে। পাওয়া মান নিজে মিলিয়ে তথ্য কপি করুন; Official সাইটে ফল দেখুন link দিয়ে CAPTCHA ও ফলের form সম্পন্ন করুন। সাধারণ mobile Chrome extension সমর্থন করে না; mobile-এ এই site সরাসরি official form autofill বা result fetch করে না।
+- Mobile: কার্ডের JPG/PNG/BMP বা scanned PDF বাছুন। Examination, Year, Board, roll ও registration পড়ার চেষ্টা করবে। পাওয়া মান নিজে মিলিয়ে নিন। Connect না হলে আলাদা reconnect পৃষ্ঠার official-site link দিয়ে CAPTCHA ও ফলের form নিজে সম্পন্ন করুন। সাধারণ mobile Chrome extension সমর্থন করে না; mobile-এ এই site সরাসরি official form autofill বা result fetch করে না।
 - Desktop Chrome/Edge: hsc-web-extension.zip download ও Extract করুন। Extensions → Developer mode → Load unpacked দিয়ে extension folder বাছুন। পুরোনো localhost helper-এর বদলে এই public-site bridge ব্যবহার করুন। Website tab reload করে Connect চাপুন; official tab-এ human verification নিজে করুন। Actual dropdown এলে Connected দেখাবে। Submit তথ্য সেই একই native form-এ বসাবে। CAPTCHA official tab-এ নিজে লিখে ফলাফল দেখুন চাপুন। Native popup-এর OK চাপার পরে exact response website-এ আসবে।
 - PDF সর্বোচ্চ ৩ পৃষ্ঠা, মোট file ১৫ MB। Password ছাড়া PDF দিন। OCR English printed text পড়ে; দুই মিনিটে শেষ না হলে ছোট পরিষ্কার file দিন। প্রথমবার OCR model ও engine download-এ mobile data লাগবে। Reset সংরক্ষিত draft মুছে দেয়।
 
@@ -20,4 +20,7 @@ Extension শুধু এই Pages project এবং official educationboardres
 
 ## Third party
 
-Tesseract.js 7.0.0, Tesseract.js-core এবং Mozilla PDF.js 5.6.205 bundled assets ব্যবহার করা হয়েছে। License files vendor folder-এ আছে। English OCR model official tessdata.projectnaptha.com/4.0.0 থেকে সংগৃহীত। কোনো third-party runtime CDN/analytics নেই।
+Tesseract.js 7.0.0, Tesseract.js-core এবং Mozilla PDF.js 5.6.205 bundled assets ব্যবহার করা হয়েছে। License files vendor folder-এ আছে। English OCR model official tessdata.projectnaptha.com/4.0.0_fast থেকে সংগৃহীত। কোনো third-party runtime CDN/analytics নেই।
+
+
+মূল পৃষ্ঠায় একটি Connect to Site button আছে। সেটি সরাসরি browser extension-কে একই official tab খুলতে/সংযুক্ত করতে বলে; তিনটি live dropdown পাওয়া গেলে Connected দেখায়। ব্যর্থ বা verification প্রয়োজন হলে আলাদা reconnect পৃষ্ঠায় কারণ জানায়। মূল পৃষ্ঠার তথ্য কপি এবং আলাদা official-site button সরানো হয়েছে।
