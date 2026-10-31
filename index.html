@@ -22,13 +22,13 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;font:15px/1.6 monospace}
 </style>
 <main><h1 style="text-align:center">মাধ্যমিক ও উচ্চ মাধ্যমিক পরীক্ষার ফলাফল</h1>
 <section id="entry-step">
-<p>পরীক্ষার তথ্য দিন অথবা নিচে কার্ড আপলোড করুন। এরপর Connect to Site চাপুন।</p>
-<form><label>Examination <select name="exam" required disabled><option value="">Connect to Site</option></select></label>
-<label>Year <select name="year" required disabled><option value="">Connect to Site</option></select></label>
-<label>Board <select name="board" required disabled><option value="">Connect to Site</option></select></label>
+<p>পরীক্ষার তথ্য দিন অথবা নিচে কার্ড আপলোড করুন। এরপর Submit চাপুন।</p>
+<form><label>Examination <select name="exam" required disabled><option value="">Submit</option></select></label>
+<label>Year <select name="year" required disabled><option value="">Submit</option></select></label>
+<label>Board <select name="board" required disabled><option value="">Submit</option></select></label>
 <label>Roll <input name="roll" required inputmode="numeric" pattern="[0-9]{6}" maxlength="6"></label><label>Registration <input name="registration" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10"></label>
 </form>
-<div class="actions"><button id="connect-site" type="button">Connect to Site</button><button id="reset" type="button">Reset</button></div>
+<div class="actions"><button id="connect-site" type="button">Submit</button><button id="reset" type="button">Reset</button></div>
 <div class="upload-option"><button id="choose-card" type="button">অথবা রেজিস্ট্রেশন কার্ড আপলোড করুন</button>
 <input id="card-file" type="file" accept="image/jpeg,image/png,image/bmp,application/pdf,.pdf" hidden>
 <p id="card-status" role="status"></p><progress id="ocr-progress" max="1" value="0" hidden aria-label="কার্ড পড়ার অগ্রগতি"></progress><button id="cancel-ocr" type="button" hidden>কার্ড পড়া বন্ধ করুন</button></div>
