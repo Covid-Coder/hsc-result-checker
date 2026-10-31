@@ -19,7 +19,7 @@ function state(data){
  if(data.phase==='loading'||data.phase==='submitting'){$('captcha-status').textContent=data.message||data.error||'Official tab লোড হচ্ছে…';return;}
  if(['disconnected','human_verification'].includes(data.phase)){connected=false;toReconnect(data.error||'পুনরায় সংযোগ করুন।');}
 }
-HSC_BRIDGE.onState(state);
+
 function openBackend(){const data=save();location.assign('https://hsc-result-backend-covid-coder.onrender.com/#draft='+encodeURIComponent(JSON.stringify(data)));}
 $('connect-site').onclick=openBackend;
 form.addEventListener('input',()=>{save();$('status').textContent='তথ্য বদলেছে। Submit-এর আগে মিলিয়ে নিন।';});
@@ -44,4 +44,4 @@ $('reset').onclick=()=>{revision++;controller?.abort();form.reset();for(const k 
 for(const [id,action] of [['focus-official','focus'],['refresh-official','state']])$(id).onclick=()=>HSC_BRIDGE.request(action).then(state).catch(e=>toReconnect(e.message));
 $('official-submit').onclick=async()=>{if(busy)return;busy=true;$('official-submit').disabled=true;try{const result=await HSC_BRIDGE.request('submit');if(result.phase==='error'){$('captcha-status').textContent=result.error;busy=false;$('official-submit').disabled=false;}else state(result);}catch(e){busy=false;$('official-submit').disabled=false;toReconnect(e.message);}};
 // Only a local extension probe, with a quiet failure for mobile/no-extension users.
-HSC_BRIDGE.request('state').then(data=>{if(data.phase==='form')options(data);}).catch(()=>{});
+
