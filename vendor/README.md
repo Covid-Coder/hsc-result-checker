@@ -1,0 +1,1 @@
+Self-hosted Tesseract.js, Tesseract.js-core, English trained data and Mozilla PDF.js. See the license files in this folder. Card data is processed in the browser and is never uploaded to an OCR server.
