@@ -8,9 +8,10 @@ function parseCard(text){
   const value=unique([...direct,...(label.test(t)?standalone:[])]);if(value)result[key]=value;
  }
  const year=unique([...t.matchAll(/EXAMINATION\s*[-–—:]?\s*(20\d{2})/g)].map(m=>m[1]));if(year)result.year=year;
- const boards=['DINAJPUR','DHAKA','RAJSHAHI','CUMILLA','JASHORE','CHATTOGRAM','BARISAL','SYLHET','MYMENSINGH','MADRASAH','TECHNICAL'];
+ const boards=['DINAJPUR','DHAKA','RAJSHAHI','CUMILLA','JASHORE','CHATTOGRAM','BARISAL','BARISHAL','SYLHET','MYMENSINGH','MADRASAH','TECHNICAL'];
  const board=unique(boards.filter(b=>new RegExp('\\b'+b+'\\b').test(t)));if(board)result.board=board.toLowerCase();
- if(/\bHSC\b|HIGHER\s+SECONDARY\s+CERTIFICATE/.test(t))result.exam='hsc';
+ if(/\bHSC\b|HIGHER\s+SECONDARY|\bALIM\b/.test(t))result.exam='hsc';
+ else if(/\bSSC\b|SECONDARY\s+SCHOOL\s+CERTIFICATE|\bDAKHIL\b/.test(t))result.exam='ssc';
  return result;
 }
 root.PARSE_CARD=parseCard;if(typeof module!=='undefined')module.exports=parseCard;
