@@ -1,4 +1,5 @@
 import {readCard} from './ocr.js';
+if(new URLSearchParams(location.search).get('reset')==='1'){try{sessionStorage.removeItem('hsc-public-draft');}catch{}history.replaceState(null,'',location.pathname);}
 const $=id=>document.getElementById(id),form=document.querySelector('form'),keys=['exam','year','board','roll','registration'],labels={exam:'পরীক্ষার নাম',year:'পরীক্ষার বছর',board:'বোর্ড',roll:'রোল',registration:'রেজিস্ট্রেশন'};
 let controller,revision=0;const connected=false;
 const read=()=>Object.fromEntries(keys.map(k=>[k,form.elements.namedItem(k).value]));
