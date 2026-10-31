@@ -20,7 +20,7 @@ $('card-file').onchange=async()=>{
   const parsed=PARSE_CARD(data.text),current=read(),old=draft(),filled=[],review=[];
   for(const k of keys){const el=form.elements.namedItem(k),value=parsed[k];if(!value){review.push(labels[k]+' শনাক্ত হয়নি—নিজে পূরণ করুন।');continue;}if(el.tagName==='SELECT'&&!connected){if(current[k]&&current[k]!==value){review.push(labels[k]+' আগের লেখার সঙ্গে মেলেনি—নিজে মিলিয়ে নিন।');continue;}old[k]=value;showCardOption(k,value);filled.push(labels[k]);review.push(labels[k]+' কার্ড থেকে বসেছে—official যাচাই বাকি।');continue;}const match=el.tagName==='SELECT'?optionValue(el,value):value;if(!match){review.push(labels[k]+' official option-এ মেলেনি।');continue;}if(current[k]&&current[k]!==match){review.push(labels[k]+' আগের লেখার সঙ্গে মেলেনি—নিজে মিলিয়ে নিন।');continue;}el.value=match;old[k]=match;filled.push(labels[k]);}
   try{sessionStorage.setItem('hsc-public-draft',JSON.stringify({...old,...Object.fromEntries(keys.filter(k=>!form.elements.namedItem(k).disabled).map(k=>[k,form.elements.namedItem(k).value]))}));}catch{}
-  $('card-status').textContent='পড়া পৃষ্ঠা: '+data.pages+'\nবসেছে: '+(filled.join(', ')||'কোনো ঘর নয়')+'\n'+review.join('\n')+'\nOCR ভুল করতে পারে; মূল কার্ডের সঙ্গে মিলিয়ে নিন।';
+  $('card-status').textContent='';
   const missing=keys.find(k=>!form.elements.namedItem(k).value&&!form.elements.namedItem(k).disabled);if(missing)form.elements.namedItem(missing).focus();
  }catch(e){if(run===revision)$('card-status').textContent=e.message+'\nতথ্য নিজে লিখে official site ব্যবহার করতে পারেন।';}finally{if(run===revision){$('ocr-progress').hidden=true;$('cancel-ocr').hidden=true;}}
 };
